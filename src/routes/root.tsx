@@ -189,6 +189,238 @@ export default function Root() {
           </div>
         </div>
       </header>
+      <section className="image">
+        <div className="container">
+          <div className="info">
+            <h2>Оборудование для водоочистки</h2>
+
+            <div className="info_box">
+              <p>Собственное производство</p>
+              <p>Индивидуальный подход к проектированию и изготовлению</p>
+              <p>Многолетний опыт</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="blue down">
+        <div className="container">
+          <div className="production">
+            <h2>Продукция</h2>
+
+            <div className="product_box">
+
+              <a href="/products/#jak8">
+                <img alt="Здание решеток и КНС" width="579" height="410"
+                     src="/wp-content/uploads/products_groups/8_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Здание решеток и КНС</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak4">
+                <img alt="Песколовки" width="780" height="579" src="/wp-content/uploads/products_groups/4_1_small.jpg"
+                     border="0" />
+                  
+                    <p>
+                      <span>Песколовки</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak6">
+                <img alt="Водоподготовка и сепарация" width="280" height="180"
+                     src="/wp-content/uploads/products_groups/6_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Водоподготовка и сепарация</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak9">
+                <img alt="Щитовые затворы и запорная арматура" width="280" height="180"
+                     src="/wp-content/uploads/products_groups/9_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Щитовые затворы и запорная арматура</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak2">
+                <img alt="Оборудование <br>отстойников" width="800" height="533"
+                     src="/wp-content/uploads/products_groups/2_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Оборудование <br />отстойников</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak5">
+                <img alt="Обработка осадка" width="800" height="590"
+                     src="/wp-content/uploads/products_groups/5_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Обработка осадка</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak7">
+                <img alt="Тонкая очистка" width="280" height="180"
+                     src="/wp-content/uploads/products_groups/7_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Тонкая очистка</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak10">
+                <img alt="Модули отстаивания, флотации и очистки" width="299" height="238"
+                     src="/wp-content/uploads/products_groups/10_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Модули отстаивания, флотации и очистки</span>
+                    </p>
+              </a>
+
+
+              <a href="/products/#jak11">
+                <img alt="Перемешивающие устройства и подъемное оборудование" width="1931" height="1608"
+                     src="/wp-content/uploads/products_groups/11_1_small.jpg" border="0" />
+                  
+                    <p>
+                      <span>Перемешивающие устройства и подъемное оборудование</span>
+                    </p>
+              </a>
+
+
+            </div>
+          </div>
+        </div>
+      </section>
+      <section>
+        <div className="map">
+          {/*<iframe*/}
+          {/*  src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=false&amp;source=constructor-api&amp;um=constructor%3AU5iJYstCsZIPETR8dpGjMAPoPTSz7wy-"*/}
+          {/*  frameBorder="0" allowFullScreen="true" width="100%" height="530px" style="display: block;"></iframe>*/}
+
+        </div>
+
+        <div className="map_contact">
+          <div className="container">
+            <div className="map_box">
+              <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/phone_img.png"
+                   alt="Телефон" />
+                <p>+7 (473) 247-11-33 или +7-950-775-42-55</p>
+
+                <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/place_img.png"
+                     alt="Адрес" />
+                  <p>Воронеж, пр-т Труда, д. 111, оф. 5
+                    naftaeco.ic_36@mail.ru</p>
+
+                  <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/letter_img.png"
+                       alt="Email" />
+                    <a href="mailto:naftaeco.ic_36@mail.ru
+">naftaeco.ic_36@mail.ru
+                    </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="color2 hide" id="call">
+        <div className="container">
+          <div className="request">
+            <p>Отправить запрос</p>
+            <p>Позвоните по телефону (473) 247-11-33 или оставьте заявку, и мы вам перезвоним</p>
+          </div>
+
+
+          <a name="requ" id="requ"></a>
+
+          <div role="form" className="wpcf7" id="wpcf7-f91-o1" lang="ru-RU" dir="ltr">
+            <div className="screen-reader-response"></div>
+            <form action="/#wpcf7-f91-o1" method="post" className="wpcf7-form" noValidate="novalidate">
+              <div >
+                <input type="hidden" name="_wpcf7" value="91" />
+                  <input type="hidden" name="_wpcf7_version" value="5.1.1" />
+                    <input type="hidden" name="_wpcf7_locale" value="ru_RU" />
+                      <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f91-o1" />
+                        <input type="hidden" name="_wpcf7_container_post" value="0" />
+                          <input type="hidden" name="g-recaptcha-response" value="" />
+              </div>
+              <div className="form_box">
+                <span className="input input--hoshi"><span className="wpcf7-form-control-wrap name-t"><input type="text"
+                                                                                                             name="name-t"
+                                                                                                             value=""
+                                                                                                             size="40"
+                                                                                                             className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
+                                                                                                             id="input-4"
+                                                                                                             aria-invalid="false" /></span><label
+                  className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-4"><span
+                  className="input__label-content input__label-content--hoshi">Имя</span></label></span><span
+                className="input input--hoshi"><span className="wpcf7-form-control-wrap org"><input type="text"
+                                                                                                    name="org" value=""
+                                                                                                    size="40"
+                                                                                                    className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
+                                                                                                    id="input-5"
+                                                                                                    aria-invalid="false" /></span><label
+                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-5"><span
+                className="input__label-content input__label-content--hoshi">Организация</span></label></span><span
+                className="input input--hoshi"><span className="wpcf7-form-control-wrap phone"><input type="text"
+                                                                                                      name="phone"
+                                                                                                      value="" size="40"
+                                                                                                      className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input__field input__field--hoshi"
+                                                                                                      id="input-6"
+                                                                                                      aria-required="true"
+                                                                                                      aria-invalid="false" /></span><label
+                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
+                className="input__label-content input__label-content--hoshi">Телефон<span>(обязательно)</span></span></label></span><span
+                className="input input--hoshi"><span className="wpcf7-form-control-wrap email"><input type="email"
+                                                                                                      name="email"
+                                                                                                      value="" size="40"
+                                                                                                      className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email input__field input__field--hoshi"
+                                                                                                      id="input-7"
+                                                                                                      aria-invalid="false" /></span><label
+                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
+                className="input__label-content input__label-content--hoshi">Email</span></label></span><span
+                className="input input--hoshi"><span className="wpcf7-form-control-wrap text"><input type="text"
+                                                                                                     name="text"
+                                                                                                     value="" size="40"
+                                                                                                     className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
+                                                                                                     id="input-8"
+                                                                                                     aria-invalid="false" /></span><label
+                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
+                className="input__label-content input__label-content--hoshi">Суть запроса</span></label></span></div>
+              <div className="wpcf7-response-output wpcf7-display-none"></div>
+              <p><input type="submit" value="Отправить" className="wpcf7-form-control wpcf7-submit button" /><span
+                className="ajax-loader"></span></p>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer>
+        <div className="container">
+          <div className="footer_line">
+            <div className="foot_info">
+              <p>© «НафтаЭКО инжиниринговая компания»</p>
+
+
+            </div>
+
+            <div className="develop">
+              <a href="#">
+                <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/sodeistv.png"
+                     alt="Промышленная группа Содействие" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
       <div id="detail">
         <Outlet />
       </div>
