@@ -1,6 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import Root from "./routes/root";
+import First from "./routes/first";
+import Second from "./routes/second";
+import Third from "./routes/third";
 import ErrorPage from "./error-page";
 
 import {
@@ -18,6 +21,18 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
     ],
+  },
+  {
+    path: "first",
+    element: <First />,
+  },
+  {
+    path: "second",
+    element: <Second />,
+  },
+  {
+    path: "third",
+    element: <Third />,
   },
 ]);
 

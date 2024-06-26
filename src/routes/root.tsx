@@ -1,426 +1,266 @@
 import { Outlet, Link } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import MaskedInput from 'react-text-mask';
 import logo from "../assets/logo.svg";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars, faTimes, faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 export default function Root() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [blockSend, setBlockSend] = useState(false);
+
+  const handleMenuClick = () => {
+    setMenuOpen(!menuOpen);
+  };
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
+
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setTimeout(() => {
+      setResult('');
+      setBlockSend(false);
+      setIsOpen(false);
+    }, 200);
+  };
+
+  useEffect(() => {
+    const handleDocumentClick = (event) => {
+      if (isOpen && !event.target.closest('.popup') && !event.target.closest('.call-button')) {
+        handleClose();
+      }
+    };
+
+    if (isOpen) {
+      if (menuOpen) setMenuOpen(false);
+    }
+
+    document.addEventListener('click', handleDocumentClick);
+    document.addEventListener('touchstart', handleDocumentClick);
+
+    return () => {
+      document.removeEventListener('click', handleDocumentClick);
+      document.removeEventListener('touchstart', handleDocumentClick);
+    };
+  }, [isOpen]);
+
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Создаем заявку на звонок....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "9db50265-5212-4f8a-9d21-adadd28f6ef2");
+    formData.append("subject", "Заявка на звонок ТехноАльянс");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setBlockSend(true);
+      setResult("Заявка отправлена успешно");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [comment, setComment] = useState('');
+  const [errors, setErrors] = useState({
+    name: '',
+    phone: '',
+  });
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+
+  const handlePhoneChange = (event) => {
+    setPhone(event.target.value);
+  };
+
+  const handleCommentChange = (event) => {
+    setComment(event.target.value);
+  };
+
+  const validateForm = () => {
+    const errors = {};
+
+    if (!name) {
+      errors.name = 'Введите имя';
+    }
+
+    if (!phone || phone.length < 18) {
+      errors.phone = 'Введите корректный номер телефона';
+    }
+
+    setErrors(errors);
+
+    return Object.keys(errors).length === 0;
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (validateForm()) {
+      onSubmit(event);
+    }
+  };
+
   return (
     <>
-      <header>
-        <div className="head_line"></div>
-
-        <div className="container">
-          <div className="head_block"></div>
-
-          <div className="head_menu">
-            <div className="head_info">
-              <a href="mailto:naftaeco.ic_36@mail.ru
-">naftaeco.ic_36@mail.ru
-              </a>
-
-              <p>+7 (473) 247-11-33 или +7-950-775-42-55</p>
-
-              <a href="#call" className="butt">Заказать звонок</a>
-            </div>
-
-            <div className="logo">
-              <a href="/">
-                <img src={logo}
-                     alt="ООО «НафтаЭКО ИК»"></img>
-              </a>
-            </div>
-
-            <div className="menu-%d0%b2%d0%b5%d1%80%d1%85%d0%bd%d0%b5%d0%b5-%d0%bc%d0%b5%d0%bd%d1%8e-container">
-              <ul id="menu" className="menu">
-                <li className="menu_line"><a href="http://naftaeco-water.ru/products/"
-                                             className="menu_item">Продукция</a>
-                  <ul className="menu_box">
-                    <li>
-                      <ul className="menu_li">
-                        <li>
-                          <div className="column_box">
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/zdanie-reshetok-i-kns/"
-                                     className="menu_link">Здание решеток и КНС</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/reshetkadrobilka-rdk-1/" className="">Решетка-дробилка
-                                  РДК</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/reshetkadrobilka-rd-1/" className="">Решетка-дробилка
-                                  РД</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/reshetka-grabelnaya-gr-1/" className="">Решетка
-                                  грабельная ГР</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/grabli-mehanicheskie-mg-1/" className="">Грабли
-                                  механические МГ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/reshetka-mehanicheskaya-rmu-1/"
-                                       className="">Решетка механическая РМУ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/reshetka-ruchnoy-ochistki/" className="">Решетка
-                                  ручной очистки</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/reshetka-stupenchataya-rs/" className="">Решетка
-                                  ступенчатая РС</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/shnekovaya-reshetka-shr/" className="">Шнековая
-                                  решетка ШР</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/shnekoviy-press-shp-1/" className="">Шнековый
-                                  пресс ШП</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/shnekoviy-transporter-sht/" className="">Шнековый
-                                  транспортер ШТ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/drobilka-othodov-dot-1/" className="">Дробилка
-                                  отходов ДОТ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/drobilka-othodov-d3v-1/" className="">Дробилка
-                                  отходов Д-3В</a></li>
-                                <li><a
-                                  href="http://naftaeco-water.ru/product/filtruyushaya-korzina-s-podemnim-mehanizmom/"
-                                  className="">Фильтрующая корзина с подъемным механизмом КПМ</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/peskolovki/"
-                                     className="menu_link">Песколовки</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/mehanizm-skrebkoviy-mspts-1/"
-                                       className="">Механизм скребковый МСПЦ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/mehanizm-skrebkoviy-msp/" className="">Механизм
-                                  скребковый МСП</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/donniy-skrebkoviy-mehanizm/" className="">Донный
-                                  скребковый механизм</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/peskolovka-tangentsialnaya/" className="">Песколовка
-                                  тангенциальная</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/gidroelevator-ge-1/" className="">Гидроэлеватор
-                                  ГЭ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/peskovoy-bunker-1/" className="">Песковой
-                                  бункер</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/vodopodgotovka-i-separatsiya/"
-                                     className="menu_link">Водоподготовка и сепарация</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/separator/" className="">Сепаратор</a>
-                                </li>
-                                <li><a href="http://naftaeco-water.ru/product/barabannaya-setka-1/" className="">Барабанная
-                                  сетка</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/setka-vodoochistnaya-beskarkasnaya-svb/"
-                                       className="">Сетка водоочистная бескаркасная СВБ</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/press-pera-1/" className="">Пресс пера</a>
-                                </li>
-                            </ul>
-                            <ul>
-                              <li><a
-                                href="http://naftaeco-water.ru/product-category/shitovie-zatvori-i-zapornaya-armatura/"
-                                className="menu_link">Щитовые затворы и запорная арматура</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/shitovie-zatvori/" className="">Щитовые
-                                  затворы</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/shandornie-zatvori/" className="">Шандорные
-                                  затворы</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/gasitel-udarov-gup-1/" className="">Гаситель
-                                  ударов ГУП</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/oborudovanie-brotstoynikov/"
-                                     className="menu_link">Оборудование отстойников</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/iloskreb-radialniy/" className="">Илоскреб
-                                  радиальный</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/mehanizm-skrebkoviy-mso/" className="">Механизм
-                                  скребковый МСО</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/ilosos-radialniy/" className="">Илосос
-                                  радиальный</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/ilouplotnitel-1/"
-                                       className="">Илоуплотнитель</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/lotki-dlya-otstoynikov/" className="">Лотки
-                                  для отстойников</a></li>
-                                <li><a
-                                  href="http://naftaeco-water.ru/product/perelivnie-kromki-dlya-radialnih-otstoynikov-1/"
-                                  className="">Переливные кромки для радиальных отстойников</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/telezhka-privodnaya/" className="">Тележка
-                                  приводная</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/obrabotka-osadka/"
-                                     className="menu_link">Обработка осадка</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/nasos-plunzherniy-np/" className="">Насос
-                                  плунжерный НП</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/lentochniy-filtrpress/" className="">Ленточный
-                                  фильтр-пресс</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/dekanter/" className="">Декантер</a></li>
-                            </ul>
-                            <ul>
-                              <li><a href="http://naftaeco-water.ru/product-category/tonkaya-ochistka/"
-                                     className="menu_link">Тонкая очистка</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/mikrofiltr/" className="">Микрофильтр</a>
-                                </li>
-                            </ul>
-                            <ul>
-                              <li><a
-                                href="http://naftaeco-water.ru/product-category/moduli-otstaivaniya-flotatsii-i-ochistki/"
-                                className="menu_link">Модули отстаивания, флотации и очистки</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/kompaktnaya-ustanovka-ku200/"
-                                       className="">Компактная установка КУ-200</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/kombinirovannaya-ustanovka/" className="">Комбинированная
-                                  установка</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/modul-mehanicheskoy-ochistki/"
-                                       className="">Модуль механической очистки</a></li>
-                            </ul>
-                            <ul>
-                              <li><a
-                                href="http://naftaeco-water.ru/product-category/peremeshivayushie-ustroystva-i-podemnoe/"
-                                className="menu_link">Перемешивающие устройства и подъемное оборудование</a></li>
-                              
-                                <li><a href="http://naftaeco-water.ru/product/meshalka-ramnaya-pur/" className="">Мешалка
-                                  рамная ПУР</a></li>
-                                <li><a href="http://naftaeco-water.ru/product/podemnoe-ustroystvo-dlya-pogruzhnih/"
-                                       className="">Подъемное устройство для погружных мешалок и насосов</a></li>
-                            </ul>
-                          </div>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="menu_line"><a href="http://naftaeco-water.ru/questionnaires/" className="menu_item">Опросные
-                  листы</a></li>
-                <li className="menu_line"><a href="http://naftaeco-water.ru/suppliers/"
-                                             className="menu_item">Поставщикам</a></li>
-                <li className="menu_line"><a href="http://naftaeco-water.ru/about/" className="menu_item">О компании</a>
-                </li>
-                <li className="menu_line"><a href="http://naftaeco-water.ru/contacts/"
-                                             className="menu_item">Контакты</a></li>
-              </ul>
-            </div>
+      <div className="fixed top-0 left-0 w-full h-20 bg-white flex justify-between items-center px-4">
+        <div className="flex items-center gap-8">
+          <div className="text-white">
+            <img src={logo} alt="Logo" className="h-16" />
+          </div>
+          <div className="text-gray-900 hidden md:flex">
+            <span>Производство оборудования и спецтехники</span>
           </div>
         </div>
-      </header>
-      <section className="image">
-        <div className="container">
-          <div className="info">
-            <h2>Оборудование для водоочистки</h2>
-
-            <div className="info_box">
-              <p>Собственное производство</p>
-              <p>Индивидуальный подход к проектированию и изготовлению</p>
-              <p>Многолетний опыт</p>
-            </div>
+        <div className="flex justify-end md:flex md:justify-between">
+          <div className="hidden md:flex md:items-center">
+            <a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-sm">
+              <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
+              <span>+7 (903) 650-47-60</span>
+            </a>
+            <a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-sm">
+              <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
+              <span>teh-al-zakaz@yandex.ru</span>
+            </a>
+            {/*<div className="mr-4 text-gray-900 hover:text-black text-sm">*/}
+            {/*  <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2"/>*/}
+            {/*  <span>123 Main St, Anytown, USA</span>*/}
+            {/*</div>*/}
           </div>
-        </div>
-      </section>
-      <section className="blue down">
-        <div className="container">
-          <div className="production">
-            <h2>Продукция</h2>
-
-            <div className="product_box">
-
-              <a href="/products/#jak8">
-                <img alt="Здание решеток и КНС" width="579" height="410"
-                     src="/wp-content/uploads/products_groups/8_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Здание решеток и КНС</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak4">
-                <img alt="Песколовки" width="780" height="579" src="/wp-content/uploads/products_groups/4_1_small.jpg"
-                     border="0" />
-                  
-                    <p>
-                      <span>Песколовки</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak6">
-                <img alt="Водоподготовка и сепарация" width="280" height="180"
-                     src="/wp-content/uploads/products_groups/6_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Водоподготовка и сепарация</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak9">
-                <img alt="Щитовые затворы и запорная арматура" width="280" height="180"
-                     src="/wp-content/uploads/products_groups/9_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Щитовые затворы и запорная арматура</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak2">
-                <img alt="Оборудование <br>отстойников" width="800" height="533"
-                     src="/wp-content/uploads/products_groups/2_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Оборудование <br />отстойников</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak5">
-                <img alt="Обработка осадка" width="800" height="590"
-                     src="/wp-content/uploads/products_groups/5_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Обработка осадка</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak7">
-                <img alt="Тонкая очистка" width="280" height="180"
-                     src="/wp-content/uploads/products_groups/7_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Тонкая очистка</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak10">
-                <img alt="Модули отстаивания, флотации и очистки" width="299" height="238"
-                     src="/wp-content/uploads/products_groups/10_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Модули отстаивания, флотации и очистки</span>
-                    </p>
-              </a>
-
-
-              <a href="/products/#jak11">
-                <img alt="Перемешивающие устройства и подъемное оборудование" width="1931" height="1608"
-                     src="/wp-content/uploads/products_groups/11_1_small.jpg" border="0" />
-                  
-                    <p>
-                      <span>Перемешивающие устройства и подъемное оборудование</span>
-                    </p>
-              </a>
-
-
-            </div>
-          </div>
-        </div>
-      </section>
-      <section>
-        <div className="map">
-          {/*<iframe*/}
-          {/*  src="https://yandex.ru/map-widget/v1/?lang=ru_RU&amp;scroll=false&amp;source=constructor-api&amp;um=constructor%3AU5iJYstCsZIPETR8dpGjMAPoPTSz7wy-"*/}
-          {/*  frameBorder="0" allowFullScreen="true" width="100%" height="530px" style="display: block;"></iframe>*/}
-
-        </div>
-
-        <div className="map_contact">
-          <div className="container">
-            <div className="map_box">
-              <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/phone_img.png"
-                   alt="Телефон" />
-                <p>+7 (473) 247-11-33 или +7-950-775-42-55</p>
-
-                <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/place_img.png"
-                     alt="Адрес" />
-                  <p>Воронеж, пр-т Труда, д. 111, оф. 5
-                    naftaeco.ic_36@mail.ru</p>
-
-                  <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/letter_img.png"
-                       alt="Email" />
-                    <a href="mailto:naftaeco.ic_36@mail.ru
-">naftaeco.ic_36@mail.ru
-                    </a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section className="color2 hide" id="call">
-        <div className="container">
-          <div className="request">
-            <p>Отправить запрос</p>
-            <p>Позвоните по телефону (473) 247-11-33 или оставьте заявку, и мы вам перезвоним</p>
-          </div>
-
-
-          <a name="requ" id="requ"></a>
-
-          <div role="form" className="wpcf7" id="wpcf7-f91-o1" lang="ru-RU" dir="ltr">
-            <div className="screen-reader-response"></div>
-            <form action="/#wpcf7-f91-o1" method="post" className="wpcf7-form" noValidate="novalidate">
-              <div >
-                <input type="hidden" name="_wpcf7" value="91" />
-                  <input type="hidden" name="_wpcf7_version" value="5.1.1" />
-                    <input type="hidden" name="_wpcf7_locale" value="ru_RU" />
-                      <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f91-o1" />
-                        <input type="hidden" name="_wpcf7_container_post" value="0" />
-                          <input type="hidden" name="g-recaptcha-response" value="" />
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button hidden md:flex" onClick={handleOpen}>
+            Заказать звонок
+          </button>
+          {isOpen && (
+            <div className="fixed top-0 left-0 w-full h-screen bg-gray-500 bg-opacity-50 flex justify-center items-center">
+              <div className="bg-white p-10 rounded popup relative w-1/2">
+                <h2 className="text-lg font-bold mb-4">Заказать звонок</h2>
+                <form onSubmit={handleSubmit}>
+                  <label className="block mb-4 relative">
+                    <span className={`text-gray-700 absolute ${name?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
+                      Ваше имя:
+                    </span>
+                    <input
+                      type="text"
+                      className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
+                      name="Имя"
+                      required
+                      value={name}
+                      onChange={handleNameChange}
+                    />
+                    {errors.name && <div style={{ color: 'red' }}>{errors.name}</div>}
+                  </label>
+                  <label className="block mb-4 relative">
+                    <span className={`text-gray-700 absolute ${phone?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
+                      Ваш телефон:
+                    </span>
+                    <MaskedInput
+                      mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]}
+                      className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
+                      name="Телефон"
+                      required
+                      value={phone}
+                      onChange={handlePhoneChange}
+                    />
+                    {errors.phone && <div style={{ color: 'red' }}>{errors.phone}</div>}
+                  </label>
+                  <label className="block mb-4 relative">
+                    <span className={`text-gray-700 absolute ${comment?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
+                      Комментарий:
+                    </span>
+                    <textarea
+                      className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
+                      name="Комментарий"
+                      value={comment}
+                      onChange={handleCommentChange}
+                    />
+                  </label>
+                  <button className="bg-orange-500 enabled:hover:bg-orange-700 text-white font-bold py-2 px-4 rounded disabled:opacity-75 disabled:bg-gray-500 "
+                          type="submit" onClick={(e) => blockSend && e.preventDefault()} disabled={blockSend}>
+                    Отправить
+                  </button>
+                  <span className="block mt-2 text-sm">{result}</span>
+                </form>
+                <button
+                  className="absolute top-0 right-0 bg-white text-black font-bold py-2 px-4 rounded"
+                  onClick={handleClose}
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </button>
               </div>
-              <div className="form_box">
-                <span className="input input--hoshi"><span className="wpcf7-form-control-wrap name-t"><input type="text"
-                                                                                                             name="name-t"
-                                                                                                             value=""
-                                                                                                             size="40"
-                                                                                                             className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
-                                                                                                             id="input-4"
-                                                                                                             aria-invalid="false" /></span><label
-                  className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-4"><span
-                  className="input__label-content input__label-content--hoshi">Имя</span></label></span><span
-                className="input input--hoshi"><span className="wpcf7-form-control-wrap org"><input type="text"
-                                                                                                    name="org" value=""
-                                                                                                    size="40"
-                                                                                                    className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
-                                                                                                    id="input-5"
-                                                                                                    aria-invalid="false" /></span><label
-                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-5"><span
-                className="input__label-content input__label-content--hoshi">Организация</span></label></span><span
-                className="input input--hoshi"><span className="wpcf7-form-control-wrap phone"><input type="text"
-                                                                                                      name="phone"
-                                                                                                      value="" size="40"
-                                                                                                      className="wpcf7-form-control wpcf7-text wpcf7-validates-as-required input__field input__field--hoshi"
-                                                                                                      id="input-6"
-                                                                                                      aria-required="true"
-                                                                                                      aria-invalid="false" /></span><label
-                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
-                className="input__label-content input__label-content--hoshi">Телефон<span>(обязательно)</span></span></label></span><span
-                className="input input--hoshi"><span className="wpcf7-form-control-wrap email"><input type="email"
-                                                                                                      name="email"
-                                                                                                      value="" size="40"
-                                                                                                      className="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-email input__field input__field--hoshi"
-                                                                                                      id="input-7"
-                                                                                                      aria-invalid="false" /></span><label
-                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
-                className="input__label-content input__label-content--hoshi">Email</span></label></span><span
-                className="input input--hoshi"><span className="wpcf7-form-control-wrap text"><input type="text"
-                                                                                                     name="text"
-                                                                                                     value="" size="40"
-                                                                                                     className="wpcf7-form-control wpcf7-text input__field input__field--hoshi"
-                                                                                                     id="input-8"
-                                                                                                     aria-invalid="false" /></span><label
-                className="input__label input__label--hoshi input__label--hoshi-color-3" htmlFor="input-6"><span
-                className="input__label-content input__label-content--hoshi">Суть запроса</span></label></span></div>
-              <div className="wpcf7-response-output wpcf7-display-none"></div>
-              <p><input type="submit" value="Отправить" className="wpcf7-form-control wpcf7-submit button" /><span
-                className="ajax-loader"></span></p>
-            </form>
-          </div>
-        </div>
-      </section>
-      <footer>
-        <div className="container">
-          <div className="footer_line">
-            <div className="foot_info">
-              <p>© «НафтаЭКО инжиниринговая компания»</p>
-
-
             </div>
-
-            <div className="develop">
-              <a href="#">
-                <img src="http://naftaeco-water.ru/wp-content/themes/twentyseventeen/assets/images/sodeistv.png"
-                     alt="Промышленная группа Содействие" />
-              </a>
-            </div>
-          </div>
+          )}
+          <button
+            className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded md:hidden"
+            onClick={handleMenuClick}
+          >
+            <FontAwesomeIcon icon={faBars} />
+          </button>
         </div>
-      </footer>
+      </div>
+
+      <nav className={`nav md:hidden ${menuOpen ? 'block' : 'hidden'}`}>
+        <div className="absolute top-0 left-0 w-full flex justify-center items-center h-screen bg-white">
+          <button
+            className="absolute top-5 right-4 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            onClick={handleMenuClose}
+          >
+            <FontAwesomeIcon icon={faTimes} />
+          </button>
+          <ul className="menu">
+            <li><a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-sm">
+              <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
+              <span>+7 (903) 650-47-60</span>
+            </a></li>
+            <li><a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-sm">
+              <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
+              <span>teh-al-zakaz@yandex.ru</span>
+            </a></li>
+            {/*<li><div className="mr-4 text-gray-900 hover:text-black text-sm">*/}
+            {/*  <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2"/>*/}
+            {/*  <span>123 Main St, Anytown, USA</span>*/}
+            {/*</div></li>*/}
+            <li><button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button" onClick={handleOpen}>Заказать звонок</button></li>
+          </ul>
+        </div>
+      </nav>
+
+      <div className="h-screen pt-16 flex flex-row flex-wrap md:flex-nowrap">
+        <Link to="/first" className="w-full md:w-1/3 xl:w-1/3 bg-red-500 hover:bg-red-700 cursor-pointer">
+          <div className="h-full flex flex-col justify-end">
+            <h2 className="text-2xl text-white p-4 w-3/4">Технологические линии и оборудование для получения мясокостной муки</h2>
+          </div>
+        </Link>
+        <Link to="/second" className="w-full md:w-1/3 xl:w-1/3 bg-blue-500 hover:bg-blue-700 cursor-pointer">
+          <div className="h-full flex flex-col justify-end">
+            <h2 className="text-2xl text-white p-4 w-3/4">Специальная техника для транспортировки биологического сырья</h2>
+          </div>
+        </Link>
+        <Link to="/third" className="w-full md:w-1/3 xl:w-1/3 bg-green-500 hover:bg-green-700 cursor-pointer">
+          <div className="h-full flex flex-col justify-end">
+            <h2 className="text-2xl text-white p-4 w-3/4">Оборудование для механической очистки стоков</h2>
+          </div>
+        </Link>
+      </div>
       <div id="detail">
         <Outlet />
       </div>
