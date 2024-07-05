@@ -108,3 +108,7 @@ span.with-content {
 .h-full-64 {
     height: calc(100% - 16rem);
 }
+
+.h-full-96 {
+    height: calc(100% - 24rem);
+}
