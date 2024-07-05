@@ -2,6 +2,9 @@ import { Outlet, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import MaskedInput from 'react-text-mask';
 import logo from "../assets/logo.svg";
+import firstSectionImg from "../assets/1.webp";
+import secondSectionImg from "../assets/2.webp";
+import thirdSectionImg from "../assets/3.webp";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faPhoneAlt, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
@@ -57,7 +60,7 @@ export default function Root() {
     setResult("Создаем заявку на звонок....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", "9db50265-5212-4f8a-9d21-adadd28f6ef2");
+    formData.append("access_key", "2e741a2c-77a8-48de-bdc4-88cac31da934");
     formData.append("subject", "Заявка на звонок ТехноАльянс");
 
     const response = await fetch("https://api.web3forms.com/submit", {
@@ -122,23 +125,23 @@ export default function Root() {
   };
 
   return (
-    <>
-      <div className="fixed top-0 left-0 w-full h-20 bg-white flex justify-between items-center px-4">
+    <div className="h-dvh md:h-auto">
+      <div className="md:fixed top-0 left-0 w-full h-16 md:h-24 bg-white flex justify-between items-center px-4 z-20">
         <div className="flex items-center gap-8">
           <div className="text-white">
-            <img src={logo} alt="Logo" className="h-16" />
+            <img src={logo} alt="Logo" className="h-12 md:h-16" />
           </div>
-          <div className="text-gray-900 hidden md:flex">
+          <div className="text-gray-900 hidden md:flex text-lg">
             <span>Производство оборудования и спецтехники</span>
           </div>
         </div>
         <div className="flex justify-end md:flex md:justify-between">
           <div className="hidden md:flex md:items-center">
-            <a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-sm">
+            <a href="tel:+7 (903) 650-47-60" className="mr-8 text-gray-900 hover:text-black text-lg">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
               <span>+7 (903) 650-47-60</span>
             </a>
-            <a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-sm">
+            <a href="mailto:teh-al-zakaz@yandex.ru" className="mr-8 text-gray-900 hover:text-black text-lg">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
               <span>teh-al-zakaz@yandex.ru</span>
             </a>
@@ -147,11 +150,11 @@ export default function Root() {
             {/*  <span>123 Main St, Anytown, USA</span>*/}
             {/*</div>*/}
           </div>
-          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button hidden md:flex" onClick={handleOpen}>
+          <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button hidden md:flex text-lg" onClick={handleOpen}>
             Заказать звонок
           </button>
           {isOpen && (
-            <div className="fixed top-0 left-0 w-full h-screen bg-gray-500 bg-opacity-50 flex justify-center items-center">
+            <div className="fixed top-0 left-0 w-full h-screen bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
               <div className="bg-white p-10 rounded popup relative w-1/2">
                 <h2 className="text-lg font-bold mb-4">Заказать звонок</h2>
                 <form onSubmit={handleSubmit}>
@@ -219,7 +222,7 @@ export default function Root() {
       </div>
 
       <nav className={`nav md:hidden ${menuOpen ? 'block' : 'hidden'}`}>
-        <div className="absolute top-0 left-0 w-full flex justify-center items-center h-screen bg-white">
+        <div className="absolute top-0 left-0 w-full flex justify-center items-center h-screen bg-white z-50">
           <button
             className="absolute top-5 right-4 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
             onClick={handleMenuClose}
@@ -244,26 +247,32 @@ export default function Root() {
         </div>
       </nav>
 
-      <div className="h-screen pt-16 flex flex-row flex-wrap md:flex-nowrap">
-        <Link to="/first" className="w-full md:w-1/3 xl:w-1/3 bg-red-500 hover:bg-red-700 cursor-pointer">
-          <div className="h-full flex flex-col justify-end">
-            <h2 className="text-2xl text-white p-4 w-3/4">Технологические линии и оборудование для получения мясокостной муки</h2>
+      <div className="h-full-16 md:h-dvh md:pt-16 flex flex-column md:flex-row flex-wrap md:flex-nowrap overflow-hidden">
+        <Link to="/first" className="group/item w-full md:w-1/3 xl:w-1/3 bg-cover bg-center bg-no-repeat h-1/3 md:h-full relative overflow-hidden">
+          <div className="absolute top-0 h-full flex flex-col justify-end z-20 pointer-events-none transition duration-500 group-hover/item:-translate-y-1">
+            <h2 className="text-base md:text-3xl text-white p-4 w-4/5 font-lt-superior font-bold">Технологические линии и оборудование для получения мясокостной муки</h2>
           </div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-90 group-hover/item:opacity-50"></div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
         </Link>
-        <Link to="/second" className="w-full md:w-1/3 xl:w-1/3 bg-blue-500 hover:bg-blue-700 cursor-pointer">
-          <div className="h-full flex flex-col justify-end">
-            <h2 className="text-2xl text-white p-4 w-3/4">Специальная техника для транспортировки биологического сырья</h2>
+        <Link to="/second" className="group/item w-full md:w-1/3 xl:w-1/3 bg-cover bg-center bg-no-repeat h-1/3 md:h-full relative overflow-hidden">
+          <div className="absolute top-0 h-full flex flex-col justify-end z-20 pointer-events-none transition duration-500 group-hover/item:-translate-y-1">
+            <h2 className="text-base md:text-3xl text-white p-4 w-4/5 font-lt-superior font-bold">Специальная техника для транспортировки биологического сырья</h2>
           </div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-second-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-90 group-hover/item:opacity-50"></div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
         </Link>
-        <Link to="/third" className="w-full md:w-1/3 xl:w-1/3 bg-green-500 hover:bg-green-700 cursor-pointer">
-          <div className="h-full flex flex-col justify-end">
-            <h2 className="text-2xl text-white p-4 w-3/4">Оборудование для механической очистки стоков</h2>
+        <Link to="/third" className="group/item w-full md:w-1/3 xl:w-1/3 bg-cover bg-center bg-no-repeat h-1/3 md:h-full relative overflow-hidden">
+          <div className="absolute top-0 h-full flex flex-col justify-end z-20 pointer-events-none transition duration-500 group-hover/item:-translate-y-1">
+            <h2 className="text-base md:text-3xl text-white p-4 w-4/5 font-lt-superior font-bold">Оборудование для механической очистки стоков</h2>
           </div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-third-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-90 group-hover/item:opacity-50"></div>
+          <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
         </Link>
       </div>
       <div id="detail">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }

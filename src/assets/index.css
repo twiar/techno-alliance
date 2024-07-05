@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@layer base {
+    @font-face {
+        font-family: 'Neutral Face';
+        src: url('font/NeutralFace.otf') format('opentype'); /* OpenType */
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'Neutral Face';
+        src: url('font/NeutralFace-Bold.otf') format('opentype'); /* OpenType */
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: 'LT Superior';
+        src: url('font/LTSuperior-Regular.otf') format('opentype'); /* OpenType */
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'LT Superior';
+        src: url('font/LTSuperior-Medium.otf') format('opentype'); /* OpenType */
+        font-weight: 500;
+    }
+
+    @font-face {
+        font-family: 'LT Superior';
+        src: url('font/LTSuperior-Semibold.otf') format('opentype'); /* OpenType */
+        font-weight: 600;
+    }
+
+    @font-face {
+        font-family: 'LT Superior';
+        src: url('font/LTSuperior-Bold.otf') format('opentype'); /* OpenType */
+        font-weight: 700;
+    }
+}
+
+body {
+    font-family: 'LT Superior' !important;
+}
+
 .menu {
     list-style: none;
     margin: 0;
@@ -52,4 +95,8 @@ span.with-content {
     font-size: 0.75rem;
     background-color: #fff;
     padding: 0 5px;
+}
+
+.h-full-16 {
+    height: calc(100% - 4rem);
 }
