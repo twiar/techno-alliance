@@ -14,6 +14,10 @@ export default {
       scale: {
         '105': '1.05',
       },
+      colors: {
+        'primary': '#c8eefb',
+        'light': '#e7f4fa',
+      },
     },
     fontFamily: {
       'neutral-face': ['"Neutral Face"', 'ui-sans-serif', 'system-ui'],
