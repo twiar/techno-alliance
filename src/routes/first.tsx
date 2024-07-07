@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import Header from "../components/Header/Header";
 import React from "react";
+import firstSectionImg from "../assets/1.webp";
+import SubmitForm from "../components/SubmitForm/SubmitForm";
 
 export default function First() {
   return (
@@ -21,118 +23,51 @@ export default function First() {
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
       </section>
-      {/*<section className="blue down">*/}
-      {/*  <div className="container">*/}
-      {/*    <div className="production">*/}
-      {/*      <h2>Продукция</h2>*/}
+      <section className="bg-primary flex justify-center py-10">
+        <div className="flex justify-center flex-col">
+            <h2 className="text-black font-lt-superior text-5xl font-bold text-center mb-12">Продукция</h2>
 
-      {/*      <div className="product_box">*/}
-
-      {/*        <a href="/products/#jak8">*/}
-      {/*          <img alt="Здание решеток и КНС" width="579" height="410"*/}
-      {/*               src="/wp-content/uploads/products_groups/8_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Здание решеток и КНС</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak4">*/}
-      {/*          <img alt="Песколовки" width="780" height="579" src="/wp-content/uploads/products_groups/4_1_small.jpg"*/}
-      {/*               border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Песколовки</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak6">*/}
-      {/*          <img alt="Водоподготовка и сепарация" width="280" height="180"*/}
-      {/*               src="/wp-content/uploads/products_groups/6_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Водоподготовка и сепарация</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak9">*/}
-      {/*          <img alt="Щитовые затворы и запорная арматура" width="280" height="180"*/}
-      {/*               src="/wp-content/uploads/products_groups/9_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Щитовые затворы и запорная арматура</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak2">*/}
-      {/*          <img alt="Оборудование <br>отстойников" width="800" height="533"*/}
-      {/*               src="/wp-content/uploads/products_groups/2_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Оборудование <br />отстойников</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak5">*/}
-      {/*          <img alt="Обработка осадка" width="800" height="590"*/}
-      {/*               src="/wp-content/uploads/products_groups/5_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Обработка осадка</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak7">*/}
-      {/*          <img alt="Тонкая очистка" width="280" height="180"*/}
-      {/*               src="/wp-content/uploads/products_groups/7_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Тонкая очистка</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak10">*/}
-      {/*          <img alt="Модули отстаивания, флотации и очистки" width="299" height="238"*/}
-      {/*               src="/wp-content/uploads/products_groups/10_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Модули отстаивания, флотации и очистки</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*        <a href="/products/#jak11">*/}
-      {/*          <img alt="Перемешивающие устройства и подъемное оборудование" width="1931" height="1608"*/}
-      {/*               src="/wp-content/uploads/products_groups/11_1_small.jpg" border="0" />*/}
-
-      {/*          <p>*/}
-      {/*            <span>Перемешивающие устройства и подъемное оборудование</span>*/}
-      {/*          </p>*/}
-      {/*        </a>*/}
-
-
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</section>*/}
-      {/*<footer>*/}
-      {/*  <div className="container">*/}
-      {/*    <div className="footer_line">*/}
-      {/*      <div className="foot_info">*/}
-      {/*        <p>© «ТЕХНОАЛЬЯНС»</p>*/}
-
-
-      {/*      </div>*/}
-      {/*    </div>*/}
-      {/*  </div>*/}
-      {/*</footer>*/}
+            <div className="flex flex-col gap-8 mb-10">
+              <div className="flex gap-8">
+                <Link to="#" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
+                  <img alt="Здание решеток и КНС" src={firstSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
+                  <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
+                    <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+                  </p>
+                </Link>
+                <Link to="#" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
+                  <img alt="Здание решеток и КНС" src={firstSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
+                  <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
+                    <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+                  </p>
+                </Link>
+              </div>
+              <div className="flex gap-8">
+                <Link to="#" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
+                  <img alt="Здание решеток и КНС" src={firstSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
+                  <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
+                    <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+                  </p>
+                </Link>
+                <Link to="#" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
+                  <img alt="Здание решеток и КНС" src={firstSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
+                  <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
+                    <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+                  </p>
+                </Link>
+              </div>
+            </div>
+        </div>
+      </section>
+      <section className="bg-gray-100 flex justify-center py-10">
+        <div className="flex justify-center flex-col w-1/2 my-10">
+          <h2 className="text-5xl font-lt-superior font-bold mb-8 text-center">Заказать звонок</h2>
+          <SubmitForm />
+        </div>
+      </section>
+      <footer className="h-16 flex justify-center items-center">
+        <p>© «ТЕХНОАЛЬЯНС»</p>
+      </footer>
       <div id="detail">
         <Outlet />
       </div>

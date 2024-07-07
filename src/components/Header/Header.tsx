@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import MaskedInput from 'react-text-mask';
 import logo from "../../assets/logo.svg";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faTimes, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import SubmitForm from "../SubmitForm/SubmitForm";
 
 export default function Header({ isMainPage }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-  const [blockSend, setBlockSend] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
 
   const handleMenuClick = () => {
@@ -24,8 +23,6 @@ export default function Header({ isMainPage }) {
 
   const handleClose = () => {
     setTimeout(() => {
-      setResult('');
-      setBlockSend(false);
       setIsOpen(false);
     }, 200);
   };
@@ -50,80 +47,9 @@ export default function Header({ isMainPage }) {
     };
   }, [isOpen]);
 
-  const [result, setResult] = React.useState("");
-
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Создаем заявку на звонок....");
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", "2e741a2c-77a8-48de-bdc4-88cac31da934");
-    formData.append("subject", "Заявка на звонок ТехноАльянс");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setBlockSend(true);
-      setResult("Заявка отправлена успешно");
-      event.target.reset();
-    } else {
-      console.log("Error", data);
-      setResult(data.message);
-    }
-  };
-
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [comment, setComment] = useState('');
-  const [errors, setErrors] = useState({
-    name: '',
-    phone: '',
-  });
-
-  const handleNameChange = (event) => {
-    setName(event.target.value);
-  };
-
-  const handlePhoneChange = (event) => {
-    setPhone(event.target.value);
-  };
-
-  const handleCommentChange = (event) => {
-    setComment(event.target.value);
-  };
-
-  const validateForm = () => {
-    const errors = {};
-
-    if (!name) {
-      errors.name = 'Введите имя';
-    }
-
-    if (!phone || phone.length < 18) {
-      errors.phone = 'Введите корректный номер телефона';
-    }
-
-    setErrors(errors);
-
-    return Object.keys(errors).length === 0;
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-
-    if (validateForm()) {
-      onSubmit(event);
-    }
-  };
-
   return (
     <>
-      <div className="md:fixed top-0 left-0 w-full z-20">
+      <div className="md:fixed top-0 left-0 w-full z-50">
         <div className="h-16 md:h-24 bg-white flex justify-between items-center px-4">
           <div className="flex items-center gap-8">
             <div className="text-white">
@@ -144,61 +70,16 @@ export default function Header({ isMainPage }) {
                 <span>teh-al-zakaz@yandex.ru</span>
               </a>
             </div>
-            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button hidden md:flex text-lg" onClick={handleOpen}>
+            <button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 call-button hidden md:flex text-lg" onClick={handleOpen}>
               Заказать звонок
             </button>
             {isOpen && (
               <div className="fixed top-0 left-0 w-full h-screen bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-                <div className="bg-white p-10 rounded popup relative w-1/2">
-                  <h2 className="text-lg font-bold mb-4">Заказать звонок</h2>
-                  <form onSubmit={handleSubmit}>
-                    <label className="block mb-4 relative">
-                      <span className={`text-gray-700 absolute ${name?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
-                        Ваше имя:
-                      </span>
-                      <input
-                        type="text"
-                        className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
-                        name="Имя"
-                        required
-                        value={name}
-                        onChange={handleNameChange}
-                      />
-                      {errors.name && <div style={{ color: 'red' }}>{errors.name}</div>}
-                    </label>
-                    <label className="block mb-4 relative">
-                      <span className={`text-gray-700 absolute ${phone?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
-                        Ваш телефон:
-                      </span>
-                      <MaskedInput
-                        mask={['+', '7', ' ', '(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, '-', /\d/, /\d/]}
-                        className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
-                        name="Телефон"
-                        required
-                        value={phone}
-                        onChange={handlePhoneChange}
-                      />
-                      {errors.phone && <div style={{ color: 'red' }}>{errors.phone}</div>}
-                    </label>
-                    <label className="block mb-4 relative">
-                      <span className={`text-gray-700 absolute ${comment?.length && 'with-content'} top-0 left-0 p-2 text-sm transition-all duration-300 ease-in-out`}>
-                        Комментарий:
-                      </span>
-                      <textarea
-                        className="w-full p-2 p-10 text-sm text-gray-700 border border-gray-300 focus:border-blue-600 focus:ring-blue-600 focus:ring-opacity-50"
-                        name="Комментарий"
-                        value={comment}
-                        onChange={handleCommentChange}
-                      />
-                    </label>
-                    <button className="bg-orange-500 enabled:hover:bg-orange-700 text-white font-bold py-2 px-4 rounded disabled:opacity-75 disabled:bg-gray-500 "
-                            type="submit" onClick={(e) => blockSend && e.preventDefault()} disabled={blockSend}>
-                      Отправить
-                    </button>
-                    <span className="block mt-2 text-sm">{result}</span>
-                  </form>
+                <div className="bg-white p-10 popup relative w-1/2">
+                  <h2 className="text-3xl font-lt-superior font-bold mb-8 text-center">Заказать звонок</h2>
+                  <SubmitForm />
                   <button
-                    className="absolute top-0 right-0 bg-white text-black font-bold py-2 px-4 rounded"
+                    className="text-3xl absolute top-0 right-0 bg-white text-black hover:bg-white hover:text-orange-500 font-bold py-4 px-6"
                     onClick={handleClose}
                   >
                     <FontAwesomeIcon icon={faTimes} />
