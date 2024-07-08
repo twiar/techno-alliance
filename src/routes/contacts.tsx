@@ -8,23 +8,28 @@ export default function Contacts() {
   return (
     <div className="h-dvh">
       <Header isMainPage={false} />
-      <div className="w-full h-40"></div>
+      <div className="w-full h-16 md:h-40"></div>
 
-      <section className="h-32 bg-primary flex justify-center items-center">
-        <div className="text-center relative z-20 text-white w-1/2">
-          <h2 className="text-5xl mb-8 font-bold text-white">Контакты</h2>
+      <section className="h-24 md:h-32 bg-primary flex justify-center items-end">
+        <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
+          <h2 className="text-2xl md:text-5xl mb-4 md:mb-8 font-bold text-white">Контакты</h2>
         </div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
       </section>
-      <section className="w-full">
+      <section className="w-full md:hidden">
+        <iframe
+          src="https://yandex.ru/map-widget/v1/?um=constructor%3Adfe8437ea8ad72431465114a75368e98ed19270de6db639f219736c690313a29&amp;source=constructor"
+          width="100%" height="300" frameBorder="0"></iframe>
+      </section>
+      <section className="w-full hidden md:block">
         <iframe
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Adfe8437ea8ad72431465114a75368e98ed19270de6db639f219736c690313a29&amp;source=constructor"
           width="100%" height="600" frameBorder="0"></iframe>
       </section>
       <section className="w-full">
         <div className="flex flex-col justify-center items-center py-10 gap-8">
-          <div className="flex gap-8 justify-between items-center">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-between items-center">
             <div className="">
               <p>+7 (473)
                 999-99-99</p>
@@ -40,10 +45,10 @@ export default function Contacts() {
           </div>
           <div className="">
             <div className="">
-              <p className="text-3xl mb-4 text-center">Территориальные менеджеры по продажам</p>
+              <p className="text-xl md:text-3xl mb-4 text-center">Территориальные менеджеры по продажам</p>
               <hr />
             </div>
-            <div className="flex gap-8 mt-4">
+            <div className="flex flex-col md:flex-row gap-8 mt-4 px-4 md:px-0">
               <div className="">
                 <p>Руководитель отдела сбыта</p>
                 <p>+7 (473) 999-99-99</p>

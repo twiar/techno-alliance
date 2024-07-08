@@ -88,7 +88,7 @@ export default function SubmitForm() {
   return (
     <>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
-        <div className="flex gap-4 w-full">
+        <div className="flex md:gap-4 w-full flex-col md:flex-row">
           <label className="block mb-4 relative w-full">
             <span className={`text-gray-700 absolute ${name?.length && 'with-content'} top-0 left-0 p-2 text-lg transition-all duration-300 ease-in-out`}>
               Имя:
@@ -114,7 +114,7 @@ export default function SubmitForm() {
             />
           </label>
         </div>
-        <div className="flex gap-4 w-full">
+        <div className="flex md:gap-4 w-full flex-col md:flex-row">
           <label className="block mb-4 relative w-full">
             <span className={`text-gray-700 absolute ${phone?.length && 'with-content'} top-0 left-0 p-2 text-lg transition-all duration-300 ease-in-out`}>
               Телефон (обязательно):
@@ -154,7 +154,7 @@ export default function SubmitForm() {
             onChange={handleCommentChange}
           />
         </label>
-        <button className="bg-orange-500 enabled:hover:bg-orange-700 text-white font-bold py-6 px-6 disabled:opacity-75 disabled:bg-gray-500 w-1/3 text-xl"
+        <button className="bg-orange-500 enabled:hover:bg-orange-700 text-white font-bold py-6 px-6 disabled:opacity-75 disabled:bg-gray-500 w-full md:w-1/3 text-xl"
                 type="submit" onClick={(e) => blockSend && e.preventDefault()} disabled={blockSend}>
           Отправить
         </button>

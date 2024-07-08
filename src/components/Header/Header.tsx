@@ -76,7 +76,7 @@ export default function Header({ isMainPage }) {
             </button>
             {isOpen && (
               <div className="fixed top-0 left-0 w-full h-screen bg-gray-500 bg-opacity-50 flex justify-center items-center z-50">
-                <div className="bg-white p-10 popup relative w-1/2">
+                <div className={`bg-white p-10 popup relative w-full h-dvh justify-center flex flex-col`}>
                   <h2 className="text-3xl font-bold mb-8 text-center">Заказать звонок</h2>
                   <SubmitForm />
                   <button
@@ -180,7 +180,7 @@ export default function Header({ isMainPage }) {
           >
             <FontAwesomeIcon icon={faTimes} />
           </button>
-          <div className={`mobile-products-menu relative w-full mt-16 bg-light flex flex-col justify-center items-center`}>
+          <div className={`mobile-products-menu relative w-full mt-16 mb-8 bg-light flex flex-col justify-center items-center`}>
             <div className={`w-full h-16 flex flex-col justify-center items-center font-bold transition duration-250 hover:bg-primary ${isMainPage && 'hidden'}`} onClick={() => setProductsOpen(!productsOpen)}>
               <span className="text-black uppercase">Продукция</span>
             </div>
@@ -254,16 +254,16 @@ export default function Header({ isMainPage }) {
               <span className="uppercase text-black">Контакты</span>
             </Link>
           </div>
-          <ul className="menu">
-            <li><a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-sm">
+          <ul className="menu w-full">
+            <li><a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-xl">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
               <span>+7 (903) 650-47-60</span>
             </a></li>
-            <li><a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-sm">
+            <li><a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-xl">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
               <span>teh-al-zakaz@yandex.ru</span>
             </a></li>
-            <li><button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded call-button" onClick={handleOpen}>Заказать звонок</button></li>
+            <li><button className="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 call-button text-xl" onClick={handleOpen}>Заказать звонок</button></li>
           </ul>
         </div>
       </nav>

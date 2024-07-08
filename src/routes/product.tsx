@@ -84,20 +84,20 @@ export default function Product() {
   return (
     <div className="h-dvh">
       <Header isMainPage={false} />
-      <div className="w-full h-40"></div>
+      <div className="w-full h-16 md:h-40"></div>
 
-      <section className="h-40 bg-primary flex justify-center items-center">
-        <div className="text-center relative z-20 text-white w-1/2">
+      <section className="h-24 md:h-32 bg-primary flex justify-center items-end">
+        <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
           <span>Здание решеток и КНС &gt;</span>
-          <h2 className="text-5xl font-bold text-white">Решетка-дробилка РДК</h2>
+          <h2 className="text-2xl md:text-5xl mb-0 md:mb-8 font-bold text-white">Решетка-дробилка РДК</h2>
         </div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
       </section>
       <section className="bg-white flex flex-col justify-center py-10 items-center">
-        <div className="w-1/2 flex flex-col">
-          <div className="flex justify-center gap-8">
-            <div className="w-1/2 flex flex-col gap-2">
+        <div className="w-full md:w-1/2 flex flex-col">
+          <div className="flex justify-center gap-8 flex-col md:flex-row px-4 md:px-0">
+            <div className="w-full md:w-1/2 flex flex-col gap-2">
               <p>Решетка-дробилка РДК предназначена для измельчения крупных плавающих отбросов в сточных водах.
                 Решетка-дробилка РДК устанавливается в канализационных насосных станциях и в зданиях решеток.</p>
               <p>Материал исполнения: корпус – из нержавеющей стали, валы и фрезы – из инструментальной стали.</p>
@@ -111,7 +111,7 @@ export default function Product() {
                 <li>Использование решетки-дробилки РДК позволят сократить затраты на транспортировку отходов</li>
               </ul>
             </div>
-            <div className="w-1/2 flex flex-col gap-2 items-center">
+            <div className="w-full md:w-1/2 flex flex-col gap-2 items-center">
               <ImageGallery
                 items={images}
                 showThumbnails={true}
@@ -137,8 +137,8 @@ export default function Product() {
               )}
             </div>
           </div>
-          <div className="bg-gray-100 flex flex-col justify-center p-10 mt-10">
-            <p className="text-3xl mb-4">Технические характеристики</p>
+          <div className="bg-gray-100 flex flex-col justify-center p-4 md:p-10 mt-10">
+            <p className="text-xl md:text-3xl mb-4">Технические характеристики</p>
             <table>
               <tbody>
               <tr>
@@ -163,30 +163,30 @@ export default function Product() {
         </div>
       </section>
       <section className="bg-primary flex flex-col justify-center py-10 items-center z-0">
-        <h2 className="text-4xl font-bold text-black mt-4 mb-8">Сопутствующая продукция</h2>
-        <Carousel responsive={responsive} className="w-2/3 carousel mb-10">
-          <Link to="/product" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
-              <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+        <h2 className="text-2xl md:text-4xl font-bold text-black mt-4 mb-8">Сопутствующая продукция</h2>
+        <Carousel responsive={responsive} className="w-full md:w-2/3 carousel mb-10">
+          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
+            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
+            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
+              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
             </p>
           </Link>
-          <Link to="/product" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
-              <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
+            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
+            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
+              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
             </p>
           </Link>
-          <Link to="/product" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
-              <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
+            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
+            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
+              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
             </p>
           </Link>
-          <Link to="/product" className="block h-96 w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-full h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-16 bg-white flex justify-center items-center">
-              <span className="text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
+          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
+            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
+            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
+              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
             </p>
           </Link>
         </Carousel>
