@@ -2,47 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
     @font-face {
-        font-family: 'Neutral Face';
-        src: url('font/NeutralFace.otf') format('opentype'); /* OpenType */
+        font-family: 'Geologica';
+        src: url('font/Geologica/Geologica-Regular.ttf');
         font-weight: 400;
     }
 
     @font-face {
-        font-family: 'Neutral Face';
-        src: url('font/NeutralFace-Bold.otf') format('opentype'); /* OpenType */
-        font-weight: 600;
-    }
-
-    @font-face {
-        font-family: 'LT Superior';
-        src: url('font/LTSuperior-Regular.otf') format('opentype'); /* OpenType */
-        font-weight: 400;
-    }
-
-    @font-face {
-        font-family: 'LT Superior';
-        src: url('font/LTSuperior-Medium.otf') format('opentype'); /* OpenType */
+        font-family: 'Geologica';
+        src: url('font/Geologica/Geologica-Medium.ttf');
         font-weight: 500;
     }
 
     @font-face {
-        font-family: 'LT Superior';
-        src: url('font/LTSuperior-Semibold.otf') format('opentype'); /* OpenType */
+        font-family: 'Geologica';
+        src: url('font/Geologica/Geologica-SemiBold.ttf');
         font-weight: 600;
     }
 
     @font-face {
-        font-family: 'LT Superior';
-        src: url('font/LTSuperior-Bold.otf') format('opentype'); /* OpenType */
+        font-family: 'Geologica';
+        src: url('font/Geologica/Geologica-Bold.ttf');
         font-weight: 700;
     }
 }
 
-body {
-    font-family: 'LT Superior' !important;
+body,li,p,h1,h2,h3,h4  {
+    font-family: 'Geologica' !important;
+}
+
+li {
+    list-style-type: initial;
+    margin-left: 1rem;
+}
+
+.carousel li {
+    list-style-type: none;
+}
+
+.products-menu li {
+    list-style-type: none;
+    margin-left: auto;
+    font-weight: 400;
+}
+
+.mobile-products-menu li {
+    list-style-type: none;
+    padding: 4px;
 }
 
 .menu {
@@ -55,6 +62,7 @@ body {
 }
 
 .menu li {
+    list-style-type: none;
     margin-bottom: 20px;
 }
 
@@ -66,19 +74,6 @@ body {
 
 .menu a:hover {
     color: #666;
-}
-
-button {
-    background-color: #ffc107;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #ff9800;
 }
 
 .block:focus-within > span {
@@ -101,6 +96,10 @@ span.with-content {
     height: calc(100% - 4rem);
 }
 
+.h-full-24 {
+    height: calc(100% - 6rem);
+}
+
 .h-full-40 {
     height: calc(100% - 10rem);
 }
@@ -111,4 +110,26 @@ span.with-content {
 
 .h-full-96 {
     height: calc(100% - 24rem);
+}
+
+section {
+    position: relative;
+    overflow: hidden;
+}
+
+.image-gallery-slide {
+    height: 400px;
+    background: black;
+}
+
+.fullscreen .image-gallery-slide {
+    height: 90dvh;
+}
+
+.image-gallery-image {
+    height: 100%;
+}
+
+.ymaps3x0--main-engine-container {
+    pointer-events: none;
 }

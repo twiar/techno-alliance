@@ -12,7 +12,12 @@ import {
 } from "react-router-dom";
 import "reset-css";
 import "./assets/index.css";
-import "./assets/style.css";
+import "react-image-gallery/styles/css/image-gallery.css";
+import "react-multi-carousel/lib/styles.css";
+import Suppliers from "./routes/suppliers";
+import About from "./routes/about";
+import Contacts from "./routes/contacts";
+import Product from "./routes/product";
 
 const router = createBrowserRouter([
   {
@@ -23,16 +28,32 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "first",
+    path: "/first",
     element: <First />,
   },
   {
-    path: "second",
+    path: "/second",
     element: <Second />,
   },
   {
-    path: "third",
+    path: "/third",
     element: <Third />,
+  },
+  {
+    path: "/suppliers",
+    element: <Suppliers />,
+  },
+  {
+    path: "/about",
+    element: <About />,
+  },
+  {
+    path: "/contacts",
+    element: <Contacts />,
+  },
+  {
+    path: "/product",
+    element: <Product />,
   },
 ]);
 

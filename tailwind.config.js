@@ -18,10 +18,12 @@ export default {
         'primary': '#c8eefb',
         'light': '#e7f4fa',
       },
+      transitionProperty: {
+        height: 'height',
+      },
     },
     fontFamily: {
-      'neutral-face': ['"Neutral Face"', 'ui-sans-serif', 'system-ui'],
-      'lt-superior': ['"LT Superior"', 'ui-sans-serif', 'system-ui'],
+      'geologica': ['"Geologica"', 'ui-sans-serif', 'system-ui'],
     },
   },
   variants: {
