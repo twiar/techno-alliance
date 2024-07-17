@@ -4,7 +4,7 @@ import Header from "../components/Header/Header";
 import React from "react";
 import Footer from "../components/Footer/Footer";
 
-export default function Third() {
+export default function Voda() {
   return (
     <div className="h-dvh">
       <Header isMainPage={false} />

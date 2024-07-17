@@ -4,7 +4,7 @@ import React from "react";
 import firstSectionImg from "../assets/1.webp";
 import Footer from "../components/Footer/Footer";
 
-export default function First() {
+export default function Linii() {
   return (
     <div className="h-dvh">
       <Header isMainPage={false} />

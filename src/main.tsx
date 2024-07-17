@@ -1,9 +1,9 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import Root from "./routes/root";
-import First from "./routes/first";
-import Second from "./routes/second";
-import Third from "./routes/third";
+import Linii from "./routes/linii";
+import Transport from "./routes/transport";
+import Voda from "./routes/voda";
 import ErrorPage from "./error-page";
 
 import {
@@ -28,16 +28,16 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/first",
-    element: <First />,
+    path: "/linii",
+    element: <Linii />,
   },
   {
-    path: "/second",
-    element: <Second />,
+    path: "/transport",
+    element: <Transport />,
   },
   {
-    path: "/third",
-    element: <Third />,
+    path: "/voda",
+    element: <Voda />,
   },
   {
     path: "/suppliers",
