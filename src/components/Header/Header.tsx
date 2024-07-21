@@ -54,28 +54,28 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'РЕШЕТКИ ДЛЯ ОЧИСТКИ СТОЧНЫХ ВОД',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Решетка грабельная ГР',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Грабли механические МГ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Решетка механическая РМУ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Шнековая решетка ШР',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -84,18 +84,18 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ТРАНСПОРТЕРЫ И ОТЖИМНЫЕ ПРЕССА',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Шнековый пресс ШП',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Шнековый транспортер ШТ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -104,28 +104,28 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'КАНАЛИЗАЦИОННЫЕ ДРОБИЛКИ И ДРОБИЛКИ ОТХОДОВ',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Решетка-дробилка РДК',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Дробилка отходов ДОТ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Дробилка отходов Д-3В',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Шнековая решетка ШР',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -134,33 +134,33 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ОБОРУДОВАНИЕ ПЕСКОЛОВОК',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Комбинированная установка УК',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Механизм скребковый МСПЦ (цепной)',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Механизм скребковый МСП',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Гидроэлеватор ГЭ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Песковой бункер',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -169,43 +169,43 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ОБОРУДОВАНИЕ ОТСТОЙНИКОВ',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Илоскреб радиальный ИПР',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Механизм скребковый МСО',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Илосос радиальный ИВР',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Илоуплотнитель',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Илоскреб-илосос радиальный для сахарных заводов',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Лотки для отстойников и переливные кромки',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Тележка приводная',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -214,18 +214,18 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ОБОРУДОВАНИЕ ДООЧИСТКИ СТОЧНЫХ ВОД',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Барабанная сетка БСБ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
             name: 'Микрофильтр МФМ',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -234,13 +234,13 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ЩИТОВЫЕ ЗАТВОРЫ',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Щитовые затворы',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -249,13 +249,13 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'НАСОСЫ ПЛУНЖЕРНЫЕ НП',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Насос плунжерный НП-28 и НП-50',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -264,13 +264,13 @@ export default function Header({ isMainPage }) {
       category: {
         name: 'ГАСИТЕЛЬ ГИДРАВЛИЧЕСКИХ УДАРОВ ГУП',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
             name: 'Гаситель гидравлических ударов ГУП-200 и ГУП-350',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -280,453 +280,215 @@ export default function Header({ isMainPage }) {
   const menuLinii = [
     {
       category: {
-        name: 'РЕШЕТКИ ДЛЯ ОЧИСТКИ СТОЧНЫХ ВОД',
+        name: 'Технологические линии',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Решетка грабельная ГР',
+            name: 'Линия переработки отходов убоя и падежа птицы в мясокостную муку',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Грабли механические МГ',
+            name: 'Линия переработки отходов убоя и падежа свиней, КРС, МРС в мясокостную муку',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Решетка механическая РМУ',
+            name: 'Линия по производству перьевой муки',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Шнековая решетка ШР',
+            name: 'Линия по производству кровяной муки',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Линии petfood',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'ТРАНСПОРТЕРЫ И ОТЖИМНЫЕ ПРЕССА',
+        name: 'Секция подготовки сырья',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Шнековый пресс ШП',
+            name: 'Бункер-накопитель для отходов убоя и падежа с/х животных и птицы',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Шнековый транспортер ШТ',
+            name: 'Дробилка туш животных, кости',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Измельчитель кости, мясокостного сырья (ДРК, ДКД)',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Дробилка замороженных блоков',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Сепаратор пера и кишок',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Пресс для пера',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Пресс щетины',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Дренирующий шнековый транспортер для обезвоживания свиных кишок',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'КАНАЛИЗАЦИОННЫЕ ДРОБИЛКИ И ДРОБИЛКИ ОТХОДОВ',
+        name: 'Секция термической обработки сырья',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Решетка-дробилка РДК',
+            name: 'Варочный котел без греющего ротора (вала)',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Дробилка отходов ДОТ',
+            name: 'Варочный котел с греющим ротор (валом)',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Дробилка отходов Д-3В',
+            name: 'Ротор (вал, мешалка) для котлов фирмы Haarslev, Dupps, Mavitec, Tremesa, Ercim',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Шнековая решетка ШР',
+            name: 'Вакуумный котел КВ-4,6М, Ж4-ФПА',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Запчасти к вакуумным котлам КВ-4,6М, Ж4-ФПА, КП-5',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'ОБОРУДОВАНИЕ ПЕСКОЛОВОК',
+        name: 'Система конденсации соковых паров',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Комбинированная установка УК',
+            name: 'Система конденсации соковых паров (на основе водяных конденсаторов)',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Механизм скребковый МСПЦ (цепной)',
+            name: 'Воздушный конденсатор соковых паров',
             link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Механизм скребковый МСП',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Гидроэлеватор ГЭ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Песковой бункер',
-            link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'ОБОРУДОВАНИЕ ОТСТОЙНИКОВ',
+        name: 'Секция жира',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Илоскреб радиальный ИПР',
+            name: 'Бункер для мясокостной муки',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Механизм скребковый МСО',
+            name: 'Пресс для отжима жира',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Илосос радиальный ИВР',
+            name: 'Центрифуга для отжима жира',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Илоуплотнитель',
+            name: 'Ёмкость для сбора и фильтрации жира',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Илоскреб-илосос радиальный для сахарных заводов',
+            name: 'Резервуары для хранения и отстаивания животного жира',
             link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Лотки для отстойников и переливные кромки',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Тележка приводная',
-            link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'ОБОРУДОВАНИЕ ДООЧИСТКИ СТОЧНЫХ ВОД',
+        name: 'Секция муки',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Барабанная сетка БСБ',
+            name: 'Охладитель мясокостной муки',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
           {
-            name: 'Микрофильтр МФМ',
+            name: 'Дробилка мясокостной муки молотковая',
             link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
+          },
+          {
+            name: 'Дробилка мясокостной муки роторная',
+            link: '',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
     },
     {
       category: {
-        name: 'ЩИТОВЫЕ ЗАТВОРЫ',
+        name: 'Вспомогательное оборудование',
         link: '',
-        classNameWrapper: 'w-full mb-2',
+        classNameWrapper: 'w-full mb-4',
         classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
         children: [
           {
-            name: 'Щитовые затворы',
+            name: 'Шнековые транспортеры мясокостной муки, мясокостного сырья',
             link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'НАСОСЫ ПЛУНЖЕРНЫЕ НП',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Насос плунжерный НП-28 и НП-50',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ГАСИТЕЛЬ ГИДРАВЛИЧЕСКИХ УДАРОВ ГУП',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Гаситель гидравлических ударов ГУП-200 и ГУП-350',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    }
-  ];
-
-  const menuTransport = [
-    {
-      category: {
-        name: 'РЕШЕТКИ ДЛЯ ОЧИСТКИ СТОЧНЫХ ВОД',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Решетка грабельная ГР',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Грабли механические МГ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Решетка механическая РМУ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Шнековая решетка ШР',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ТРАНСПОРТЕРЫ И ОТЖИМНЫЕ ПРЕССА',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Шнековый пресс ШП',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Шнековый транспортер ШТ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'КАНАЛИЗАЦИОННЫЕ ДРОБИЛКИ И ДРОБИЛКИ ОТХОДОВ',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Решетка-дробилка РДК',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Дробилка отходов ДОТ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Дробилка отходов Д-3В',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Шнековая решетка ШР',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ОБОРУДОВАНИЕ ПЕСКОЛОВОК',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Комбинированная установка УК',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Механизм скребковый МСПЦ (цепной)',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Механизм скребковый МСП',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Гидроэлеватор ГЭ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Песковой бункер',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ОБОРУДОВАНИЕ ОТСТОЙНИКОВ',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Илоскреб радиальный ИПР',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Механизм скребковый МСО',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Илосос радиальный ИВР',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Илоуплотнитель',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Илоскреб-илосос радиальный для сахарных заводов',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Лотки для отстойников и переливные кромки',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Тележка приводная',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ОБОРУДОВАНИЕ ДООЧИСТКИ СТОЧНЫХ ВОД',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Барабанная сетка БСБ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-          {
-            name: 'Микрофильтр МФМ',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ЩИТОВЫЕ ЗАТВОРЫ',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Щитовые затворы',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'НАСОСЫ ПЛУНЖЕРНЫЕ НП',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Насос плунжерный НП-28 и НП-50',
-            link: '',
-            className: 'text-gray-700 text-lg',
-          },
-        ]
-      }
-    },
-    {
-      category: {
-        name: 'ГАСИТЕЛЬ ГИДРАВЛИЧЕСКИХ УДАРОВ ГУП',
-        link: '',
-        classNameWrapper: 'w-full mb-2',
-        classNameTitle: 'text-gray-700 text-xl !font-bold uppercase mb-2',
-        children: [
-          {
-            name: 'Гаситель гидравлических ударов ГУП-200 и ГУП-350',
-            link: '',
-            className: 'text-gray-700 text-lg',
+            className: 'text-gray-700 text-base mb-1 block hover:text-black',
           },
         ]
       }
@@ -789,12 +551,17 @@ export default function Header({ isMainPage }) {
             <span className="uppercase">Продукция</span>
             <div className={`flex justify-center items-center bg-primary z-50 top-16 right-0 absolute w-full transition duration-250 ${productsOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} onMouseEnter={() => setProductsOpen(true)} onMouseLeave={() => setProductsOpen(false)}>
               <div className={`
-                flex flex-row w-1/2 m-4 gap-2
+                flex flex-row w-2/3 m-4 gap-6
                 ${location.pathname === '/voda' ? '' : 'hidden'}
               `}>
                 <div className="flex flex-col w-1/3">
                   {
-                    menuVoda.filter((val, i) => i < 3).map((ul, i) =>
+                    (
+                      location.pathname === '/voda'
+                        ? menuVoda
+                        : location.pathname === '/linii'
+                          ? menuLinii
+                          : []).filter((val, i) => i < 3).map((ul, i) =>
                       <ul className={ul.category.classNameWrapper} key={i}>
                         <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
                         {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
@@ -804,6 +571,43 @@ export default function Header({ isMainPage }) {
                 <div className="flex flex-col w-1/3">
                   {
                     menuVoda.filter((val, i) => i >= 3 && i < 5).map((ul, i) =>
+                      <ul className={ul.category.classNameWrapper} key={i}>
+                        <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
+                        {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
+                      </ul>)
+                  }
+                </div>
+                <div className="flex flex-col w-1/3">
+                  {
+                    menuVoda.filter((val, i) => i >= 5 && i < 9).map((ul, i) =>
+                      <ul className={ul.category.classNameWrapper} key={i}>
+                        <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
+                        {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
+                      </ul>)
+                  }
+                </div>
+              </div>
+              <div className={`
+                flex flex-row w-2/3 m-4 gap-6
+                ${location.pathname === '/linii' ? '' : 'hidden'}
+              `}>
+                <div className="flex flex-col w-1/3">
+                  {
+                    (
+                      location.pathname === '/voda'
+                        ? menuVoda
+                        : location.pathname === '/linii'
+                          ? menuLinii
+                          : []).filter((val, i) => i < 2).map((ul, i) =>
+                      <ul className={ul.category.classNameWrapper} key={i}>
+                        <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
+                        {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
+                      </ul>)
+                  }
+                </div>
+                <div className="flex flex-col w-1/3">
+                  {
+                    menuVoda.filter((val, i) => i >= 2 && i < 5).map((ul, i) =>
                       <ul className={ul.category.classNameWrapper} key={i}>
                         <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
                         {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
@@ -849,11 +653,17 @@ export default function Header({ isMainPage }) {
             <div className={`flex-col justify-center items-center bg-primary w-full transition duration-250 px-4 ${productsOpen ? 'flex' : 'hidden'}`}>
               <div className="flex flex-col w-full m-4 gap-2">
                 {
-                  menuVoda.map((ul, i) =>
+                  (
+                    location.pathname === '/voda'
+                    ? menuVoda
+                    : location.pathname === '/linii'
+                      ? menuLinii
+                      : []).map((ul, i) =>
                     <ul className={ul.category.classNameWrapper} key={i}>
                       <li><Link to={ul.category.link} className={ul.category.classNameTitle}>{ul.category.name}</Link></li>
                       {ul.category.children.map((li, liKey) => <li key={liKey}><Link to={li.link} className={li.className}>{li.name}</Link></li>)}
-                    </ul>)
+                    </ul>
+                  )
                 }
               </div>
             </div>
