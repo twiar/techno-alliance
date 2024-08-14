@@ -8,11 +8,11 @@ export default function SubmitForm() {
 
   const onSubmit = async (event) => {
     event.preventDefault();
-    setResult("Создаем заявку на звонок....");
+    setResult("Отправляем запрос....");
     const formData = new FormData(event.target);
 
     formData.append("access_key", "2e741a2c-77a8-48de-bdc4-88cac31da934");
-    formData.append("subject", "Заявка на звонок ТехноАльянс");
+    formData.append("subject", "Запрос с сайта ТехноАльянс");
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -23,7 +23,7 @@ export default function SubmitForm() {
 
     if (data.success) {
       setBlockSend(true);
-      setResult("Заявка отправлена успешно");
+      setResult("Запрос отправлен успешно");
       event.target.reset();
     } else {
       console.log("Error", data);
@@ -31,6 +31,7 @@ export default function SubmitForm() {
     }
   };
 
+  const [url, setUrl] = useState(window.location.href);
   const [name, setName] = useState('');
   const [org, setOrg] = useState('');
   const [phone, setPhone] = useState('');
@@ -89,6 +90,12 @@ export default function SubmitForm() {
     <>
       <form onSubmit={handleSubmit} className="flex flex-col items-center">
         <div className="flex md:gap-4 w-full flex-col md:flex-row">
+          <input
+            type="text"
+            className="w-full p-2 text-lg text-gray-700 border-b focus-visible:outline-none focus-visible:border-orange-500 bg-transparent hidden"
+            name="Страница, с которой сделан запрос:"
+            value={url}
+          />
           <label className="block mb-4 relative w-full">
             <span className={`text-gray-700 absolute ${name?.length && 'with-content'} top-0 left-0 p-2 text-lg transition-all duration-300 ease-in-out`}>
               Имя:

@@ -1,4 +1,4 @@
-import { Outlet, Link } from "react-router-dom";
+import {Outlet, Link, useParams} from "react-router-dom";
 import Header from "../components/Header/Header";
 import React, {useEffect, useState} from "react";
 import Footer from "../components/Footer/Footer";
@@ -10,10 +10,15 @@ import SubmitForm from "../components/SubmitForm/SubmitForm";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import Carousel from 'react-multi-carousel';
+import {collection, getDocs, query, where} from "firebase/firestore";
+import {db} from "../firebase";
 
 export default function Product() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const [images, setImages] = useState([]);
+  const [product, setProduct] = useState({});
+  const outerParams = useParams();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -25,41 +30,20 @@ export default function Product() {
     }, 200);
   };
 
-  const images = [
-    {
-      original: firstSectionImg,
-      thumbnail: firstSectionImg,
-    },
-    {
-      original: secondSectionImg,
-      thumbnail: secondSectionImg,
-    },
-    {
-      original: thirdSectionImg,
-      thumbnail: thirdSectionImg,
-    },
-  ];
-
-  const responsive = {
-    superLargeDesktop: {
-      // the naming can be any, depends on you.
-      breakpoint: { max: 4000, min: 3000 },
-      items: 5
-    },
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 464 },
-      items: 2
-    },
-    mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 1
-    }
+  const getProduct = async () => {
+    const snapshot = await getDocs(query(collection(db, "products"), where("path", "==", outerParams?.productId)));
+    const list = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    return list[0];
   };
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const product = await getProduct();
+      if (product?.images?.length) setImages(product.images.map((img) => ({ original: img, thumbnail: img })))
+      setProduct(product);
+    };
+    fetchProduct();
+  }, []);
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
@@ -86,30 +70,24 @@ export default function Product() {
       <Header isMainPage={false} />
       <div className="w-full h-16 md:h-40"></div>
 
-      <section className="h-24 md:h-32 bg-primary flex justify-center items-end">
-        <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
-          <span>Здание решеток и КНС &gt;</span>
-          <h2 className="text-2xl md:text-5xl mb-0 md:mb-8 font-bold text-white">Решетка-дробилка РДК</h2>
-        </div>
-        <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
-        <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
+      <section className="h-24 md:h-48 bg-primary flex justify-center items-end">
+        {product && (
+          <>
+            <div className="text-center mb-4 relative z-20 text-white w-full md:w-1/2">
+              <h2 className="text-2xl md:text-5xl mb-0 md:mb-8 font-bold text-white">{product?.title}</h2>
+            </div>
+            {product?.images && (
+              <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"  style={{ backgroundImage: `url(${product?.images ? product?.images[0] : ''})` }}></div>
+            )}
+            <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
+          </>
+        )}
       </section>
       <section className="bg-white flex flex-col justify-center py-10 items-center">
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="flex justify-center gap-8 flex-col md:flex-row px-4 md:px-0">
             <div className="w-full md:w-1/2 flex flex-col gap-2">
-              <p>Решетка-дробилка РДК предназначена для измельчения крупных плавающих отбросов в сточных водах.
-                Решетка-дробилка РДК устанавливается в канализационных насосных станциях и в зданиях решеток.</p>
-              <p>Материал исполнения: корпус – из нержавеющей стали, валы и фрезы – из инструментальной стали.</p>
-              <p className="mt-4"><strong>Преимущества:</strong></p>
-              <ul className="">
-                <li>Высокая производительность и надежность работы</li>
-                <li>Долгий срок эксплуатации</li>
-                <li>Удобство обслуживания, монтажа и демонтажа благодаря особенностям конструкции (механизм дробления и
-                  барабаны представляют собой отдельные модули; решетку можно извлечь из канала, не опустошая его)
-                </li>
-                <li>Использование решетки-дробилки РДК позволят сократить затраты на транспортировку отходов</li>
-              </ul>
+              {product?.description}
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-2 items-center">
               <ImageGallery
@@ -145,52 +123,46 @@ export default function Product() {
                 <td><strong>Наименование параметра</strong></td>
                 <td><strong>Значение</strong></td>
               </tr>
-              <tr>
-                <td>Пропускная способность по воде, м<sup>3</sup>/ч</td>
-                <td>От 70 до 2500</td>
-              </tr>
-              <tr>
-                <td>Минимальная ширина канала, мм</td>
-                <td>От 500 до 1300</td>
-              </tr>
-              <tr>
-                <td>Глубина канала, мм</td>
-                <td>От 750 до 2500</td>
-              </tr>
+              {product?.characteristics?.map((ch) => (
+                <tr>
+                  <td>{ch?.name}</td>
+                  <td>{ch?.value}</td>
+                </tr>
+              ))}
               </tbody>
             </table>
           </div>
         </div>
       </section>
-      <section className="bg-primary flex flex-col justify-center py-10 items-center z-0">
-        <h2 className="text-2xl md:text-4xl font-bold text-black mt-4 mb-8">Сопутствующая продукция</h2>
-        <Carousel responsive={responsive} className="w-full md:w-2/3 carousel mb-10">
-          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
-              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
-            </p>
-          </Link>
-          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
-              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
-            </p>
-          </Link>
-          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
-              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
-            </p>
-          </Link>
-          <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
-            <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
-            <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
-              <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>
-            </p>
-          </Link>
-        </Carousel>
-      </section>
+      {/*<section className="bg-primary flex flex-col justify-center py-10 items-center z-0">*/}
+      {/*  <h2 className="text-2xl md:text-4xl font-bold text-black mt-4 mb-8">Сопутствующая продукция</h2>*/}
+      {/*  <Carousel responsive={responsive} className="w-full md:w-2/3 carousel mb-10">*/}
+      {/*    <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">*/}
+      {/*      <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />*/}
+      {/*      <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">*/}
+      {/*        <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>*/}
+      {/*      </p>*/}
+      {/*    </Link>*/}
+      {/*    <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">*/}
+      {/*      <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />*/}
+      {/*      <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">*/}
+      {/*        <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>*/}
+      {/*      </p>*/}
+      {/*    </Link>*/}
+      {/*    <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">*/}
+      {/*      <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />*/}
+      {/*      <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">*/}
+      {/*        <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>*/}
+      {/*      </p>*/}
+      {/*    </Link>*/}
+      {/*    <Link to="/product" className="block w-64 h-64 md:h-96 md:w-96 bg-white relative group/item overflow-hidden">*/}
+      {/*      <img alt="Здание решеток и КНС" src={thirdSectionImg} className="object-cover w-64 h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />*/}
+      {/*      <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">*/}
+      {/*        <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">Здание решеток и КНС</span>*/}
+      {/*      </p>*/}
+      {/*    </Link>*/}
+      {/*  </Carousel>*/}
+      {/*</section>*/}
       <Footer />
       <div id="detail">
         <Outlet />
