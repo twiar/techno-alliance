@@ -22,7 +22,7 @@ export default function Suppliers() {
       <div className="w-full h-16 md:h-40"></div>
 
       <section className="h-24 md:h-32 bg-primary flex justify-center items-end">
-        <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
+        <div className="text-center mb-4 relative z-20 text-white w-full md:w-1/2">
           <h2 className="text-2xl md:text-5xl mb-4 md:mb-8 font-bold text-white">Поставщикам</h2>
         </div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
@@ -75,9 +75,6 @@ export default function Suppliers() {
                     </div>
                   </div>
                 </div>
-                <p>Иван Иванов<br />
-                  Специалист по снабжению<br />
-                  +7 (473) 999-99-99 (доб. 1)</p>
                 <hr className="my-4" />
                 <h2>Комплектующие</h2>
                 <div className="w-full flex gap-8 mb-4">
@@ -156,7 +153,7 @@ export default function Suppliers() {
                   </div>
                 </div>
                 <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a><br />
-                  +7 (473) 999-99-99 (доб. 1);</p>
+                  +7 (908) 135-39-85</p>
                 <hr className="my-4" />
                 <h2>Поставщикам услуг (аутсорсинг)</h2>
                 <div className="w-full flex gap-8 mb-4">
@@ -174,15 +171,15 @@ export default function Suppliers() {
                   </div>
                 </div>
                 <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a><br />
-                  +7 (473) 999-99-99 (доб. 1)</p>
+                  +7 (908) 135-39-85</p>
                 <hr className="my-4" />
                 <h2>Транспортным компаниям</h2>
                 <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a><br />
-                  +7 (473) 999-99-99 (доб. 1)</p>
+                  +7 (908) 135-39-85</p>
                 <hr className="my-4" />
                 <h2>Проектным институтам, строительным и инжиниринговым организациям</h2>
                 <p>Сфера переработки отходов и обработки бытовых и промышленных стоков<br />
-                  +7 (473) 999-99-99</p>
+                  +7 (908) 135-39-85</p>
               </div>
             </div>
           </div>

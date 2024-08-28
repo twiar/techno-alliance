@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'first-section-img': "url('/src/assets/1.webp')",
+        'second-section-img': "url('/src/assets/2.webp')",
+        'third-section-img': "url('/src/assets/3.webp')",
+      },
       scale: {
         '105': '1.05',
       },

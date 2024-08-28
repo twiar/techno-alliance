@@ -11,11 +11,50 @@ export default function Contacts() {
       <div className="w-full h-16 md:h-40"></div>
 
       <section className="h-24 md:h-32 bg-primary flex justify-center items-end">
-        <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
+        <div className="text-center mb-4 relative z-20 text-white w-full md:w-1/2">
           <h2 className="text-2xl md:text-5xl mb-4 md:mb-8 font-bold text-white">Контакты</h2>
         </div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"></div>
         <div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-black z-0 top-0 left-0"></div>
+      </section>
+      <section className="w-full">
+        <div className="flex flex-col justify-center items-center py-10 gap-8">
+          <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-between items-center">
+            <div className="">
+              <a href="tel:+79081353985">+7 (908) 135-39-85</a>
+            </div>
+            <div className="">
+              <p></p>
+              <p>394026, г. Воронеж, ул. Солнечная,
+                д. 31А, офис 423/2</p>
+            </div>
+            <div className="">
+              <a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></div>
+          </div>
+          {/*<div className="">*/}
+          {/*  <div className="">*/}
+          {/*    <p className="text-xl md:text-3xl mb-4 text-center">Территориальные менеджеры по продажам</p>*/}
+          {/*    <hr />*/}
+          {/*  </div>*/}
+          {/*  <div className="flex flex-col md:flex-row gap-8 mt-4 px-4 md:px-0">*/}
+          {/*    <div className="">*/}
+          {/*      <p>Руководитель отдела сбыта</p>*/}
+          {/*      <p>+7 (908) 135-39-85</p>*/}
+          {/*      <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>*/}
+          {/*    </div>*/}
+          {/*    <div className="">*/}
+          {/*      <p>ЦФО, ЮФО, СКФО, СЗФО, Беларусь</p>*/}
+          {/*      <p>+7 (473) 999-99-99</p>*/}
+          {/*      <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>*/}
+          {/*    </div>*/}
+          {/*    <div className="">*/}
+          {/*      <p>ЦФО, ПФО, СФО, ДФО, Казахстан</p>*/}
+          {/*      <p>+7 (473) 999-99-99</p>*/}
+          {/*      <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>*/}
+          {/*    </div>*/}
+          {/*  </div>*/}
+          {/*</div>*/}
+        </div>
       </section>
       <section className="w-full md:hidden">
         <iframe
@@ -26,47 +65,6 @@ export default function Contacts() {
         <iframe
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Adfe8437ea8ad72431465114a75368e98ed19270de6db639f219736c690313a29&amp;source=constructor"
           width="100%" height="600" frameBorder="0"></iframe>
-      </section>
-      <section className="w-full">
-        <div className="flex flex-col justify-center items-center py-10 gap-8">
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-between items-center">
-            <div className="">
-              <p>+7 (473)
-                999-99-99</p>
-            </div>
-            <div className="">
-              <p></p>
-              <p>394026, Воронеж, пр-т Труда,
-                д. 111, оф. 5<br />
-                проходная — 31°08′ 03.69″, 29°58′ 45.03″</p>
-            </div>
-            <div className="cont_in"><br />
-              <a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></div>
-          </div>
-          <div className="">
-            <div className="">
-              <p className="text-xl md:text-3xl mb-4 text-center">Территориальные менеджеры по продажам</p>
-              <hr />
-            </div>
-            <div className="flex flex-col md:flex-row gap-8 mt-4 px-4 md:px-0">
-              <div className="">
-                <p>Руководитель отдела сбыта</p>
-                <p>+7 (473) 999-99-99</p>
-                <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>
-              </div>
-              <div className="">
-                <p>ЦФО, ЮФО, СКФО, СЗФО, Беларусь</p>
-                <p>+7 (473) 999-99-99</p>
-                <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>
-              </div>
-              <div className="">
-                <p>ЦФО, ПФО, СФО, ДФО, Казахстан</p>
-                <p>+7 (473) 999-99-99</p>
-                <p><a href="mailto:teh-al-zakaz@yandex.ru">teh-al-zakaz@yandex.ru</a></p>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
       <Footer />
       <div id="detail">

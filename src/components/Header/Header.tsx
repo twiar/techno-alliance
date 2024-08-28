@@ -150,9 +150,9 @@ export default function Header({ isMainPage }) {
           </div>
           <div className="flex justify-end md:flex md:justify-between">
             <div className="hidden md:flex md:items-center">
-              <a href="tel:+7 (903) 650-47-60" className="mr-8 text-gray-900 hover:text-black text-lg">
+              <a href="tel:+79081353985" className="mr-8 text-gray-900 hover:text-black text-lg">
                 <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
-                <span>+7 (903) 650-47-60</span>
+                <span>+7 (908) 135-39-85</span>
               </a>
               <a href="mailto:teh-al-zakaz@yandex.ru" className="mr-8 text-gray-900 hover:text-black text-lg">
                 <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
@@ -256,9 +256,9 @@ export default function Header({ isMainPage }) {
             </Link>
           </div>
           <ul className="menu w-full">
-            <li><a href="tel:+7 (903) 650-47-60" className="mr-4 text-gray-900 hover:text-black text-xl">
+            <li><a href="tel:+79081353985" className="mr-4 text-gray-900 hover:text-black text-xl">
               <FontAwesomeIcon icon={faPhoneAlt} className="mr-2"/>
-              <span>+7 (903) 650-47-60</span>
+              <span>+7 (908) 135-39-85</span>
             </a></li>
             <li><a href="mailto:teh-al-zakaz@yandex.ru" className="mr-4 text-gray-900 hover:text-black text-xl">
               <FontAwesomeIcon icon={faEnvelope} className="mr-2"/>
