@@ -12,6 +12,7 @@ import {faTimes} from "@fortawesome/free-solid-svg-icons";
 import Carousel from 'react-multi-carousel';
 import {collection, getDocs, query, where} from "firebase/firestore";
 import {db} from "../firebase";
+import parse from 'html-react-parser';
 
 export default function Product() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -87,7 +88,7 @@ export default function Product() {
         <div className="w-full md:w-1/2 flex flex-col">
           <div className="flex justify-center gap-8 flex-col md:flex-row px-4 md:px-0">
             <div className="w-full md:w-1/2 flex flex-col gap-2">
-              {product?.description}
+              {parse(String(product?.description))}
             </div>
             <div className="w-full md:w-1/2 flex flex-col gap-2 items-center">
               <ImageGallery
@@ -120,12 +121,12 @@ export default function Product() {
             <table>
               <tbody>
               <tr>
-                <td><strong>Наименование параметра</strong></td>
+                <td className="py-1 pr-1"><strong>Наименование параметра</strong></td>
                 <td><strong>Значение</strong></td>
               </tr>
               {product?.characteristics?.map((ch) => (
                 <tr>
-                  <td>{ch?.name}</td>
+                  <td className="py-1 pr-1">{ch?.name}</td>
                   <td>{ch?.value}</td>
                 </tr>
               ))}

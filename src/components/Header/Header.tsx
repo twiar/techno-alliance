@@ -60,15 +60,7 @@ export default function Header({ isMainPage }) {
       if (outerParams?.sectionId) {
         let menuApi = [];
         const section = await getSection();
-        if (section[0]?.order) section.sort((a, b) => {
-          if (a.order < b.order) {
-            return -1;
-          }
-          if (a.order > b.order) {
-            return 1;
-          }
-          return 0;
-        });
+
         setSection(section);
         const cats = await getCategories(section.id);
         if (cats[0]?.order) cats.sort((a, b) => {
