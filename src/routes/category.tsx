@@ -1,7 +1,7 @@
 import Header from "../components/Header/Header";
 import React, {useEffect, useState} from "react";
 import Footer from "../components/Footer/Footer";
-import { Link, useParams, Outlet } from "react-router-dom";
+import {Link, useParams, Outlet, useLocation} from "react-router-dom";
 import {collection, getDocs, doc, query, where} from "firebase/firestore";
 import {db} from "../firebase";
 
@@ -10,6 +10,7 @@ export default function Category() {
   const [section, setSection] = useState({});
   const [products, setProducts] = useState([]);
   const outerParams = useParams();
+  const location = useLocation();
 
   const getSection = async () => {
     const collections = collection(db, 'sections');
@@ -41,7 +42,7 @@ export default function Category() {
       setSection(section);
     };
     fetchAll();
-  }, []);
+  }, [location.pathname, outerParams.productId]);
 
   useEffect(() => {
     const fetchProducts = async () => {

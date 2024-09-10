@@ -1,4 +1,4 @@
-import {Outlet, Link, useParams} from "react-router-dom";
+import {Outlet, Link, useParams, useLocation} from "react-router-dom";
 import Header from "../components/Header/Header";
 import React, {useEffect, useState} from "react";
 import Footer from "../components/Footer/Footer";
@@ -20,6 +20,7 @@ export default function Product() {
   const [images, setImages] = useState([]);
   const [product, setProduct] = useState({});
   const outerParams = useParams();
+  const location = useLocation();
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -44,7 +45,7 @@ export default function Product() {
       setProduct(product);
     };
     fetchProduct();
-  }, []);
+  }, [location.pathname, outerParams.productId]);
 
   useEffect(() => {
     const handleDocumentClick = (event) => {
