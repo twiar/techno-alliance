@@ -133,3 +133,7 @@ section {
 .ymaps3x0--main-engine-container {
     pointer-events: none;
 }
+
+.image-gallery-slide, .image-gallery-thumbnails {
+    background: #fff !important;
+}

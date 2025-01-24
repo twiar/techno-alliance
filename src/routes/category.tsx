@@ -64,15 +64,15 @@ export default function Category() {
   return (
     <div className="h-dvh">
       <Header isMainPage={false} />
-      <div className="w-full h-16 md:h-40"></div>
+      <div className="w-full h-16 lg:h-40"></div>
 
-      <section className="h-96 md:h-full-64 bg-primary flex justify-center items-end">
+      <section className="h-96 lg:h-full-64 bg-primary flex justify-center items-end">
         {item && (
           <>
-            <div className="text-center mb-4 md:mb-16 relative z-20 text-white w-full md:w-1/2">
-              <h2 className="text-2xl md:text-5xl mb-4 md:mb-8 font-bold text-white">{item?.title}</h2>
+            <div className="text-left lg:text-center mb-4 lg:mb-16 relative z-20 text-white w-full lg:w-1/2 px-4 lg:px-0">
+              <h2 className="text-2xl lg:text-5xl mb-4 lg:mb-8 font-bold text-white">{item?.title}</h2>
 
-              <div className="flex flex-col gap-1 md:gap-2">{item?.description}</div>
+              <div className="flex flex-col gap-1 lg:gap-2">{item?.description}</div>
             </div>
             {item?.images && (<div className="absolute bg-cover bg-center bg-no-repeat w-full h-full bg-first-section-img transition duration-500 group-hover/item:scale-105 z-10 top-0 left-0 opacity-70 group-hover/item:opacity-50"
                  style={{ backgroundImage: `url(${item?.images ? item?.images[0] : ''})` }}
@@ -84,15 +84,15 @@ export default function Category() {
       </section>
       <section className="bg-primary flex justify-center py-10">
         <div className="flex justify-center flex-col">
-          <h2 className="text-black text-2xl md:text-5xl font-bold text-center mb-12">Продукция</h2>
+          <h2 className="text-black text-2xl lg:text-5xl font-bold text-center mb-12">Продукция</h2>
 
           <div className="flex flex-col gap-8 mb-10">
-            <div className="flex gap-8 flex-col md:flex-row flex-wrap max-w-[1000px] items-center justify-center">
+            <div className="flex gap-8 flex-col lg:flex-row flex-wrap max-w-[1000px] items-center justify-center">
               {products.map((product) => (
-                <Link to={`/sections/${section?.path}/categories/${item?.path}/products/${product?.path}`} className="block md:h-96 md:w-96 bg-white relative group/item overflow-hidden">
-                  <img alt={product?.title} src={product?.images ? product?.images[0] : ''} className="object-cover w-full h-64 md:h-96 transition duration-500 group-hover/item:scale-105" />
-                  <p className="absolute w-full bottom-0 left-0 h-12 md:h-16 bg-white flex justify-center items-center">
-                    <span className="text-base md:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">{product?.title}</span>
+                <Link to={`/sections/${section?.path}/categories/${item?.path}/products/${product?.path}`} className="block lg:h-96 lg:w-96 bg-white relative group/item overflow-hidden">
+                  <img alt={product?.title} src={product?.images ? product?.images[0] : ''} className="object-cover w-full h-64 lg:h-96 transition duration-500 group-hover/item:scale-105" />
+                  <p className="absolute w-full bottom-0 left-0 h-12 lg:h-16 bg-white flex justify-center items-center">
+                    <span className="text-base lg:text-lg font-medium text-black transition duration-500 group-hover/item:text-orange-500">{product?.title}</span>
                   </p>
                 </Link>
               ))}
